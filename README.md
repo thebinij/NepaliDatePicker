@@ -1,4 +1,4 @@
-# Date Picker Svelte
+# Bikram-Sambat Date Picker Svelte
 
 [![NPM](https://img.shields.io/npm/v/date-picker-svelte.svg)](https://npmjs.com/package/date-picker-svelte)
 [![License](https://img.shields.io/npm/l/date-picker-svelte.svg)](LICENSE)
@@ -9,6 +9,7 @@
 Date and time picker for Svelte
 
 Features:
+
 - Theming
 - Custom formats
 - Internationalization (i18n)
@@ -22,14 +23,14 @@ Features:
 ## Install
 
 ```
-npm install date-picker-svelte
+npm install BS-date-picker-svelte
 ```
 
 ## Usage
 
 ```svelte
 <script>
-  import { DateInput } from 'date-picker-svelte'
+  import { DateInput } from 'bikram-sambat-date-picker-svelte'
   let date = new Date()
 </script>
 
@@ -58,20 +59,20 @@ Check the [docs](https://date-picker-svelte.kasper.space/docs) to learn more
 
 1. Update `CHANGELOG.md`
 2. Check for errors
-    ```
-    npm run lint
-    ```
+   ```
+   npm run lint
+   ```
 3. Bump the version number
-    ```
-    npm version --no-git-tag <version>
-    ```
+   ```
+   npm version --no-git-tag <version>
+   ```
 4. Generate the package
-    ```
-    npm run build:package
-    ```
+   ```
+   npm run build:package
+   ```
 5. Publish the package
-    ```
-    npm publish ./package
-    ```
+   ```
+   npm publish ./package
+   ```
 6. Commit with a tag in format "v#.#.#"
 7. Create GitHub release with release notes

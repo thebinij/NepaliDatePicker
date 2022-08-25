@@ -1,14 +1,21 @@
+import { firstDayOfEachMonth, numberOfDaysEachMonth } from './constants';
 import type { FormatToken } from './parse'
 
-export function isLeapYear(year: number): boolean {
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
-}
-export function getMonthLength(year: number, month: number): number {
-  const feb = isLeapYear(year) ? 29 : 28
-  const monthLengths = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-  return monthLengths[month]
+
+export function getFirstWeekDay(year:number, month:number): number {
+  
+  if(year<2076 && year>2100) return 0;  
+  //@ts-ignore
+return firstDayOfEachMonth[year][month]
 }
 
+export function getMonthLength(year: number, month: number): number {
+
+  if(year<2076 && year>2100) return 30;
+    //@ts-ignore
+    return numberOfDaysEachMonth[year][month];
+} 
+//TODO: toText function
 export function toText(date: Date | null, formatTokens: FormatToken[]): string {
   let text = ''
   if (date) {
@@ -41,9 +48,9 @@ export function getMonthDays(year: number, month: number): CalendarDay[] {
   return days
 }
 export function getCalendarDays(value: Date, weekStartsOn: number): CalendarDay[] {
-  const year = value.getFullYear()
-  const month = value.getMonth()
-  const firstWeekday = new Date(year, month, 1).getDay()
+  const year = value.getFullYear() // Need to use another way
+  const month = value.getMonth() // Need to use another way
+  const firstWeekday = getFirstWeekDay(year,month)  // old ways > new Date(year, month, 1).getDay()
 
   let days: CalendarDay[] = []
 
